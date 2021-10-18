@@ -56,7 +56,7 @@ public class Server {
     }
 
     public void sendClientOnline() {
-        StringBuilder sb = new StringBuilder("/list:").append(Handler.REGEX);
+        StringBuilder sb = new StringBuilder("/list").append(Handler.REGEX);
         for (Handler handler : handlers.values()) {
             sb.append(handler.getCurrentUser()).append(Handler.REGEX);
         }

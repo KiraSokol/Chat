@@ -11,16 +11,6 @@ public class DbAuthService implements AuthService {
 
 
 
-
-
-    public static void main(String[] args) {
-        try {
-            connect();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
     private static void createDB() throws SQLException {
         statement.execute("create table if not exists users (login text primary key, password text);");
         statement.execute("insert into clients (login, password, username)" + "values ('log1', 'pass', 'user1'), ('log1', 'pass', 'user2');");
@@ -85,17 +75,17 @@ public class DbAuthService implements AuthService {
 
     }
 
-//    public String changeUsername(String oldName, String newName) {
-//        try (PreparedStatement ps = connection.prepareStatement("update clients set username = ? where username = ?")) {
-//            ps.setString(1, newName);
-//            ps.setString(2, oldName);
-//            if (ps.executeUpdate() >0) return newName;
-//
-//
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//
-//        return oldName;
-//    }
+    public String changeUsername(String oldName, String newName) {
+        try (PreparedStatement ps = connection.prepareStatement("update clients set username = ? where username = ?")) {
+            ps.setString(1, newName);
+            ps.setString(2, oldName);
+            if (ps.executeUpdate() >0) return newName;
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return oldName;
+    }
 }
