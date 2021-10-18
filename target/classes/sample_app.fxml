@@ -8,7 +8,9 @@
 
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="Scene"
+            fx:controller="HomeWork.AppController"
             prefHeight="400.0" prefWidth="600.0">
 
+    <Button layoutX="300" layoutY="200" text="Click me!" onAction="#click" fx:id="button"/>
+    <Label layoutX="300" layoutY="100" text="SOME TEXT" minHeight="20" minWidth="50" fx:id="label"/>
 </AnchorPane>
